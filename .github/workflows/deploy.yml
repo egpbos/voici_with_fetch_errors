@@ -21,9 +21,12 @@ jobs:
       - name: Set up Python
         run: uv python install
 
+      - name: set up project environment
+        run: uv sync
+
       - name: Build Voici site
         shell: bash -l {0}
-        run: voici build app/Untitled.ipynb --output-dir dist
+        run: uv run voici build app/Untitled.ipynb --output-dir dist
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
