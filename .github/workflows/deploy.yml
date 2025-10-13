@@ -26,7 +26,9 @@ jobs:
 
       - name: Build Voici site
         shell: bash -l {0}
-        run: uv run voici build app/Untitled.ipynb --output-dir dist
+        run: |
+          uv run voici build --contents app --output-dir dist
+          cp -r ./dist/extensions ./dist/voici/render/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
