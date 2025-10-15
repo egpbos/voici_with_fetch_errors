@@ -28,7 +28,6 @@ jobs:
         shell: bash -l {0}
         run: |
           uv run voici app/Untitled.ipynb --output-dir dist
-          cp -r ./dist/extensions ./dist/voici/render/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
